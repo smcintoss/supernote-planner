@@ -8,12 +8,12 @@ function section_list_template(TCPDF $pdf, float $margin, float $line_size, floa
     $half_width = ($width - $margin) / 2;
     $third_height = ($height) / 2;
 
-    for ($i = 0; $i < 4; $i++) {
-        $x = $start_x + ($i % 2) * ($half_width + $margin);
-        $y = $start_y + floor($i / 2) * ($third_height) + $line_size;
-        [$offset_x, $offset_y] = planner_draw_note_area($pdf, $x, $y, $half_width, $third_height - $line_size, 'checkbox', $line_size);
-        $pdf->Rect($x + $offset_x, $y + $offset_y - $line_bold, $half_width, $line_bold, 'F');
-    }
+    // SEM -- Do one large task section instead of 4 "quarter" sections
+    $i = 0;
+    $x = $start_x + ($i % 2) * ($width + $margin);
+    $y = $start_y + floor($i / 2) * ($height) + $line_size;
+    [$offset_x, $offset_y] = planner_draw_note_area($pdf, $x, $y, $width, $height - $line_size, 'checkbox', $line_size);
+    $pdf->Rect($x + $offset_x, $y + $offset_y - $line_bold, $width, $line_bold, 'F');
 }
 
 Templates::register('section-list', 'section_list_template');

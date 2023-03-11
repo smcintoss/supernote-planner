@@ -13,27 +13,37 @@ function planner_daily_diary_template(TCPDF $pdf, float $margin, float $line_siz
     $pdf->setFont(Loc::_('fonts.font2'));
     $pdf->setFontSize(Size::fontSize($line_size, $line_height));
 
-    $half_width = ($width - $margin) / 2;
+    // SEM - changes to make left side thinner and right side wider
 
-    [$offset_x, $offset_y] = planner_draw_note_area($pdf, $start_x, $start_y, $half_width, $height, 'rule', $line_size);
+    $log_width_pct = 0.7; 
+    $right_side_width = ($width - $margin) * $log_width_pct;
+    $left_side_width = ($width - $margin) * (1.0 - $log_width_pct);
+
+    // draw lines for left side
+    [$offset_x, $offset_y] = planner_draw_note_area($pdf, $start_x, $start_y, $left_side_width, $height, 'rule', $line_size);
+
+    // add label backgrounds, labels, numbers to left side
     $pdf->setAbsXY($x = $start_x + $offset_x, $y = $start_y + $offset_y - $line_size);
     foreach (['my-goals', 'daily-grateful', 'daily-best-things'] as $key) {
         $pdf->setAbsXY($x, $y + $title_offset);
-        $pdf->Rect($x, $y + $title_offset, $half_width, $title_height, 'F');
-        $pdf->Cell($half_width, $title_height, Loc::_($key));
+        $pdf->Rect($x, $y + $title_offset, $left_side_width, $title_height, 'F');
+        $pdf->Cell($left_side_width, $title_height, Loc::_($key));
         $pdf->setAbsXY($x, $y += $line_size);
-        $pdf->Cell($half_width, $line_size, '1.');
+        $pdf->Cell($left_side_width, $line_size, '1.');
         $pdf->setAbsXY($x, $y += 2 * $line_size);
-        $pdf->Cell($half_width, $line_size, '2.');
+        $pdf->Cell($left_side_width, $line_size, '2.');
         $pdf->setAbsXY($x, $y += 2 * $line_size);
-        $pdf->Cell($half_width, $line_size, '3.');
+        $pdf->Cell($left_side_width, $line_size, '3.');
         $pdf->setAbsXY($x, $y += 2 * $line_size);
     }
 
-    [$offset_x, $offset_y] = planner_draw_note_area($pdf, $start_x + $margin + $half_width, $start_y, $half_width, $height, 'rule', $line_size);
-    $pdf->setAbsXY($x = $start_x + $margin + $half_width + $offset_x, $y = $start_y + $offset_y - $line_size + $title_offset);
-    $pdf->Rect($x, $y, $half_width, $title_height, 'F');
-    $pdf->Cell($half_width, $title_height, Loc::_('daily-log'));
+    // draw lines for right side
+    [$offset_x, $offset_y] = planner_draw_note_area($pdf, $start_x + $margin + $left_side_width, $start_y, $right_side_width, $height, 'rule', $line_size);
+
+    // add label background, label to right side
+    $pdf->setAbsXY($x = $start_x + $margin + $left_side_width + $offset_x, $y = $start_y + $offset_y - $line_size + $title_offset);
+    $pdf->Rect($x, $y, $right_side_width, $title_height, 'F');
+    $pdf->Cell($right_side_width, $title_height, Loc::_('daily-log'));
 }
 
 Templates::register('planner-daily-diary', 'planner_daily_diary_template');

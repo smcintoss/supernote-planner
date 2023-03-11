@@ -153,8 +153,11 @@ function planner_daily(TCPDF $pdf, Day $day, bool $hr12, bool $night_shift): voi
     planner_daily_header($pdf, $day, 1, $tabs);
     link_tabs($pdf, $tabs, $tab_targets);
 
+    // SEM - default agenda width percentage is 40% (0.4) - try making smaller
+    $agenda_width_pct = 0.3;
+
     $margin = 2;
-    $agenda_size = (W - 3 * $margin) * 0.4;
+    $agenda_size = (W - 3 * $margin) * $agenda_width_pct;
     $line_per_hour = 2;
     $agenda_line_height = 2.2;
     $task_line_size = 6;

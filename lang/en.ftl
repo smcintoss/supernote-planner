@@ -68,16 +68,16 @@ note = Note
 task = Task
 diary = Diary
 event = Event
-list = List
+list = Task
 w-task = W:Task
 
-my-goals = MY GOALS
-daily-grateful = THINGS I AM GRATEFUL FOR
-daily-best-things = BEST THINGS THAT HAPPENED TODAY
-daily-log = MY DAILY LOG
+my-goals = Daily Goals
+daily-grateful = Gratitudes
+daily-best-things = Best Things Today
+daily-log = Diary
 
 note-index = Notes Index
-list-index = Lists Index
+list-index = Tasks Index
 event-index = Events Index
 
 event-date = Date
