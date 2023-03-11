@@ -14,6 +14,7 @@ class PDFGenerator
 
         // Set font path
         set_include_path(get_include_path() . PATH_SEPARATOR . $this->base . DS . 'fonts');
+        // SEM - note: this doesn't seem to be working
 
         // Create new PDF document
         $this->pdf = new TCPDF('P', 'mm', [$w, $h], true, 'UTF-8', false);
@@ -24,6 +25,11 @@ class PDFGenerator
         $this->pdf->SetMargins(0, 0, 0);
         $this->pdf->SetAutoPageBreak(false, 0);
         $this->pdf->setFontSubsetting(true);
+        
+        // SEM - manually add fonts so we can specify exact location
+        $fontPath = $this->base . DS . 'fonts' . DS;
+        $this->pdf->AddFont(Loc::_('fonts.font1'), '', $fontPath . Loc::_('fonts.font1'));
+        $this->pdf->AddFont(Loc::_('fonts.font2'), '', $fontPath . Loc::_('fonts.font2'));
     }
 
     public function generate(IGenerator $gen): void
