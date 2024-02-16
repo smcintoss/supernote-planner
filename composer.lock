@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2e0637403de7202223924719e3238acc",
+    "content-hash": "3a208d76323a47df4dca2671b7e537cc",
     "packages": [
         {
             "name": "jrmajor/fluent",
@@ -89,33 +89,33 @@
         },
         {
             "name": "jrmajor/pluralrules",
-            "version": "v1.1.0",
+            "version": "v1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jrmajor/pluralrules.git",
-                "reference": "e1ac8d79be130bc7113f595a99b64146ba1005f4"
+                "reference": "31e74e7df48e5c182e8f9c85684940e9937bb45d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jrmajor/pluralrules/zipball/e1ac8d79be130bc7113f595a99b64146ba1005f4",
-                "reference": "e1ac8d79be130bc7113f595a99b64146ba1005f4",
+                "url": "https://api.github.com/repos/jrmajor/pluralrules/zipball/31e74e7df48e5c182e8f9c85684940e9937bb45d",
+                "reference": "31e74e7df48e5c182e8f9c85684940e9937bb45d",
                 "shasum": ""
             },
             "require": {
                 "ext-intl": "*",
-                "php": "8.1 - 8.2"
+                "php": "8.1 - 8.3"
             },
             "require-dev": {
-                "azjezz/psl": "^2.0",
+                "azjezz/psl": "^2.8",
                 "hoa/compiler": "~3.17",
-                "jrmajor/cs": "^0.4.6",
-                "nette/php-generator": "^4.0",
-                "nunomaduro/collision": "^6.3",
+                "jrmajor/cs": "^0.5.4",
+                "nette/php-generator": "^4.1",
+                "nunomaduro/collision": "^7.10",
                 "php-standard-library/phpstan-extension": "^1.0",
-                "phpstan/phpstan": "^1.8",
-                "phpunit/phpunit": "^9.5",
-                "symfony/console": "^6.1",
-                "symfony/var-dumper": "^6.1",
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "^10.4",
+                "symfony/console": "^6.3",
+                "symfony/var-dumper": "^6.3",
                 "vaimo/composer-patches": "^5.1"
             },
             "type": "library",
@@ -159,7 +159,7 @@
             ],
             "support": {
                 "issues": "https://github.com/jrmajor/pluralrules/issues",
-                "source": "https://github.com/jrmajor/pluralrules/tree/v1.1.0"
+                "source": "https://github.com/jrmajor/pluralrules/tree/v1.1.2"
             },
             "funding": [
                 {
@@ -167,20 +167,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-10-18T14:15:53+00:00"
+            "time": "2023-11-24T23:41:05+00:00"
         },
         {
             "name": "tecnickcom/tcpdf",
-            "version": "6.6.2",
+            "version": "6.6.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tecnickcom/TCPDF.git",
-                "reference": "e3cffc9bcbc76e89e167e9eb0bbda0cab7518459"
+                "reference": "5fce932fcee4371865314ab7f6c0d85423c5c7ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tecnickcom/TCPDF/zipball/e3cffc9bcbc76e89e167e9eb0bbda0cab7518459",
-                "reference": "e3cffc9bcbc76e89e167e9eb0bbda0cab7518459",
+                "url": "https://api.github.com/repos/tecnickcom/TCPDF/zipball/5fce932fcee4371865314ab7f6c0d85423c5c7ce",
+                "reference": "5fce932fcee4371865314ab7f6c0d85423c5c7ce",
                 "shasum": ""
             },
             "require": {
@@ -209,7 +209,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "LGPL-3.0-only"
+                "LGPL-3.0-or-later"
             ],
             "authors": [
                 {
@@ -231,7 +231,7 @@
             ],
             "support": {
                 "issues": "https://github.com/tecnickcom/TCPDF/issues",
-                "source": "https://github.com/tecnickcom/TCPDF/tree/6.6.2"
+                "source": "https://github.com/tecnickcom/TCPDF/tree/6.6.5"
             },
             "funding": [
                 {
@@ -239,7 +239,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2022-12-17T10:28:59+00:00"
+            "time": "2023-09-06T15:09:26+00:00"
         }
     ],
     "packages-dev": [],
@@ -250,5 +250,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
