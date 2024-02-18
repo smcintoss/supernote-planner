@@ -101,20 +101,20 @@ function planner_daily_template(TCPDF $pdf, float $margin, bool $hr12, bool $nig
     // Agenda
     // only draw agenda if size is > 0 0
     if ($agenda_size > 0) {
-    $hours = $time_end - $time_start + 1;
-    $per_hour = ($height - 2 * $margin) / $hours;
-    $per_line = $per_hour / $line_per_hour;
+        $hours = $time_end - $time_start + 1;
+        $per_hour = ($height - 2 * $margin) / $hours;
+        $per_line = $per_hour / $line_per_hour;
 
-    $pdf->setFontSize(Size::fontSize($per_line, $agenda_line_height));
-    $pdf->setTextColor(...Colors::g(6));
+        $pdf->setFontSize(Size::fontSize($per_line, $agenda_line_height));
+        $pdf->setTextColor(...Colors::g(6));
 
-    $y = $start_y + $margin;
-    for ($h = $time_start; $h <= $time_end; $h++) {
-        $pdf->setAbsXY($start_x, $y);
-        $pdf->Cell($agenda_size, $per_line, planner_agenda_format_time_h($h, $hr12), align: 'L');
-        for ($i = 1; $i <= $line_per_hour; $i++)
-            $pdf->Line($start_x, $y + $i * $per_line, $start_x + $agenda_size, $y + $i * $per_line);
-        $y += $per_hour;
+        $y = $start_y + $margin;
+        for ($h = $time_start; $h <= $time_end; $h++) {
+            $pdf->setAbsXY($start_x, $y);
+            $pdf->Cell($agenda_size, $per_line, planner_agenda_format_time_h($h, $hr12), align: 'L');
+            for ($i = 1; $i <= $line_per_hour; $i++)
+                $pdf->Line($start_x, $y + $i * $per_line, $start_x + $agenda_size, $y + $i * $per_line);
+            $y += $per_hour;
         }
     }
 
@@ -157,13 +157,13 @@ function planner_daily(TCPDF $pdf, Day $day, bool $hr12, bool $night_shift): voi
     link_tabs($pdf, $tabs, $tab_targets);
 
     // original agenda width percentage is 40% (0.4) - if 0% agenda won't be drawn
-    $agenda_width_pct = 0.3;
+    $agenda_width_pct = 0.0;
 
     $margin = 2;
     $agenda_size = (W - 3 * $margin) * $agenda_width_pct;
     $line_per_hour = 2;
     $agenda_line_height = 2.2;
-    $task_line_size = 6;
+    $task_line_size = 7;
 
     Templates::draw('planner-daily', $margin, $hr12, $night_shift, $agenda_size, $line_per_hour, $agenda_line_height, $task_line_size);
 

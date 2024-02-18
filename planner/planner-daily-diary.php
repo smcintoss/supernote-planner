@@ -15,7 +15,7 @@ function planner_daily_diary_template(TCPDF $pdf, float $margin, float $line_siz
 
     // SEM - changes to make left side thinner and right side wider
 
-    $log_width_pct = 0.7; 
+    $log_width_pct = 0.75; 
     $right_side_width = ($width - $margin) * $log_width_pct;
     $left_side_width = ($width - $margin) * (1.0 - $log_width_pct);
 
@@ -59,7 +59,7 @@ function planner_daily_diary(TCPDF $pdf, Day $day): void
     link_tabs($pdf, $tabs, $tab_targets);
 
     $margin = 2;
-    $line_size = 6;
+    $line_size = 7;
     $line_height = 2.5;
 
     Templates::draw('planner-daily-diary', $margin, $line_size, $line_height);

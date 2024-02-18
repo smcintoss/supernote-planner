@@ -12,8 +12,8 @@ function planner_weekly_task_template(TCPDF $pdf, float $margin, float $line_siz
     if ($single_task_column == 1) {
         planner_draw_note_area($pdf, $start_x, $start_y, $width - $margin, $height, 'checkbox',  $line_size);
     } else if ($single_task_column == 0) {
-    planner_draw_note_area($pdf, $start_x, $start_y, $half_width, $height, 'checkbox', $line_size);
-    planner_draw_note_area($pdf, $start_x + $margin + $half_width, $start_y, $half_width, $height, 'checkbox', $line_size);
+        planner_draw_note_area($pdf, $start_x, $start_y, $half_width, $height, 'checkbox', $line_size);
+        planner_draw_note_area($pdf, $start_x + $margin + $half_width, $start_y, $half_width, $height, 'checkbox', $line_size);
     }
 }
 
@@ -30,7 +30,7 @@ function planner_weekly_task(TCPDF $pdf, Week $week): void
     link_tabs($pdf, $tabs, $tab_targets);
 
     $margin = 2;
-    $line_size = 6;
+    $line_size = 7;
 
     Templates::draw('planner-weekly-task', $margin, $line_size);
 
