@@ -7,8 +7,14 @@ function planner_weekly_task_template(TCPDF $pdf, float $margin, float $line_siz
 
     $half_width = ($width - $margin) / 2;
 
+    $single_task_column = 1;    // one full size column instead of 2 half size columns
+
+    if ($single_task_column == 1) {
+        planner_draw_note_area($pdf, $start_x, $start_y, $width - $margin, $height, 'checkbox',  $line_size);
+    } else if ($single_task_column == 0) {
     planner_draw_note_area($pdf, $start_x, $start_y, $half_width, $height, 'checkbox', $line_size);
     planner_draw_note_area($pdf, $start_x + $margin + $half_width, $start_y, $half_width, $height, 'checkbox', $line_size);
+    }
 }
 
 Templates::register('planner-weekly-task', 'planner_weekly_task_template');

@@ -99,6 +99,8 @@ function planner_daily_template(TCPDF $pdf, float $margin, bool $hr12, bool $nig
     $pdf->setFont(Loc::_('fonts.font2'));
 
     // Agenda
+    // only draw agenda if size is > 0 0
+    if ($agenda_size > 0) {
     $hours = $time_end - $time_start + 1;
     $per_hour = ($height - 2 * $margin) / $hours;
     $per_line = $per_hour / $line_per_hour;
@@ -113,6 +115,7 @@ function planner_daily_template(TCPDF $pdf, float $margin, bool $hr12, bool $nig
         for ($i = 1; $i <= $line_per_hour; $i++)
             $pdf->Line($start_x, $y + $i * $per_line, $start_x + $agenda_size, $y + $i * $per_line);
         $y += $per_hour;
+        }
     }
 
     $start_x += $margin + $agenda_size;
@@ -153,7 +156,7 @@ function planner_daily(TCPDF $pdf, Day $day, bool $hr12, bool $night_shift): voi
     planner_daily_header($pdf, $day, 1, $tabs);
     link_tabs($pdf, $tabs, $tab_targets);
 
-    // SEM - default agenda width percentage is 40% (0.4) - try making smaller
+    // original agenda width percentage is 40% (0.4) - if 0% agenda won't be drawn
     $agenda_width_pct = 0.3;
 
     $margin = 2;
